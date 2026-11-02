@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyHome HMS</string>
+    <string name="reload">بارگذاری مجدد</string>
+    <string name="settings">تنظیمات</string>
+    <string name="retry">تلاش مجدد</string>
+</resources>
