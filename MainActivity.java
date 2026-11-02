@@ -388,17 +388,20 @@ public class MainActivity extends Activity {
         filePathCallback = null;
     }
 
-    @Override
-    public void onBackPressed() {
-        if (webView == null) {
-            confirmExit();
-            return;
-        }
+   @Override
+public void onBackPressed() {
+    if (webView != null && webView.canGoBack()) {
+        webView.goBack();
+        return;
+    }
 
-        if (webView.canGoBack()) {
-            webView.goBack();
-            return;
-        }
+    new AlertDialog.Builder(this)
+            .setTitle("خروج از برنامه")
+            .setMessage("آیا می‌خواهید از اپ خانه ما خارج شوید؟")
+            .setPositiveButton("خروج", (dialog, which) -> finish())
+            .setNegativeButton("ماندن", null)
+            .show();
+}
 
         webView.evaluateJavascript(
                 "(function(){try{if(window.history && window.history.length>1){window.history.back();return 'back';}return 'root';}catch(e){return 'root';}})();",
